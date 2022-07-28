@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+		<EnableDynamicLoading>true</EnableDynamicLoading>
+		<DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DevExpress.Reporting.Core" Version="21.2.9" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Contract\Contract.csproj" />
+	</ItemGroup>
+
+	<Target Name="CopyReport" AfterTargets="Build">
+		<ItemGroup>
+			<ReportBinaries Include="$(OutputPath)**\*" />
+			<DevExpressDrawingBinaries Include="$(OutputPath)runtimes\win\lib\netcoreapp2.0\*" />
+		</ItemGroup>
+
+		<!--<Copy SourceFiles="@(DevExpressDrawingBinaries)" DestinationFolder="$(OutputPath)" />-->
+
+		<Copy SourceFiles="@(ReportBinaries)" DestinationFolder="$(ProjectDir)..\TestReportPlugin\bin\Debug\net6.0\Report\%(RecursiveDir)" SkipUnchangedFiles="true" />
+	</Target>
+
+</Project>
