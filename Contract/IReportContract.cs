@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Contract;
 
-namespace Contract
+public interface IReportContract
 {
-	public interface IReportContract
-	{
-		public byte[] Generate();
-	}
+	public byte[] Generate();
 }

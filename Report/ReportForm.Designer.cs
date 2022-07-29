@@ -33,6 +33,7 @@
 			this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
 			this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
 			this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+			this.Message = new DevExpress.XtraReports.Parameters.Parameter();
 			this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
 			((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
 			// 
@@ -73,16 +74,23 @@
             this.xrLabel1});
 			this.ReportHeader.Name = "ReportHeader";
 			// 
+			// Message
+			// 
+			this.Message.Description = "Test message from host";
+			this.Message.Name = "Message";
+			// 
 			// xrLabel2
 			// 
+			this.xrLabel2.ExpressionBindings.AddRange(new DevExpress.XtraReports.UI.ExpressionBinding[] {
+            new DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "?Message")});
 			this.xrLabel2.Font = new System.Drawing.Font("Open Sans", 8F);
 			this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
 			this.xrLabel2.Multiline = true;
 			this.xrLabel2.Name = "xrLabel2";
-			this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+			this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
 			this.xrLabel2.SizeF = new System.Drawing.SizeF(100F, 23F);
 			this.xrLabel2.StylePriority.UseFont = false;
-			this.xrLabel2.Text = "Detail";
+			this.xrLabel2.Text = "xrLabel2";
 			// 
 			// ReportForm
 			// 
@@ -92,6 +100,8 @@
             this.BottomMargin,
             this.ReportHeader});
 			this.Font = new System.Drawing.Font("Open Sans", 9.75F);
+			this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
+            this.Message});
 			this.Version = "21.2";
 			((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
@@ -102,8 +112,9 @@
 		private DevExpress.XtraReports.UI.DetailBand Detail;
 		private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
 		private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
-		private DevExpress.XtraReports.UI.XRLabel xrLabel2;
 		private DevExpress.XtraReports.UI.XRLabel xrLabel1;
 		private DevExpress.XtraReports.UI.ReportHeaderBand ReportHeader;
+		private DevExpress.XtraReports.UI.XRLabel xrLabel2;
+		private DevExpress.XtraReports.Parameters.Parameter Message;
 	}
 }
